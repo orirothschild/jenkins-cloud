@@ -34,6 +34,14 @@ sudo systemctl daemon-reload
 
 sudo systemctl start jenkins
 sudo systemctl status jenkins
+
+
+##compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+
 # sudo chkconfig jenkins on
 # sudo service docker start
 # sudo service jenkins start
