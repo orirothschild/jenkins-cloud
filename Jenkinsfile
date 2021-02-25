@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+  label 'aws'
+}
+
        triggers {
         pollSCM "* * * * *"
        }
