@@ -70,12 +70,12 @@ EOF
 
 resource "aws_iam_instance_profile" "test_profile" {
   name = "test_profile"
-  role = "${aws_iam_role.test_role.name}"
+  role = aws_iam_role.test_role.name
 }
 
 resource "aws_iam_role_policy" "test_policy" {
   name = "test_policy"
-  role = "${aws_iam_role.test_role.id}"
+  role = aws_iam_role.test_role.id
 
   policy = <<EOF
 {
@@ -124,9 +124,9 @@ EOF
 }
 
 resource "aws_instance" "jenkins-instance" {
-  ami             = "${data.aws_ami.amazon-linux-2.id}"
+  ami             = data.aws_ami.amazon-linux-2.id
   instance_type   = "t2.medium"
-  key_name        = "${var.keyname}"
+  key_name        = var.keyname
   #vpc_id          = "${aws_vpc.development-vpc.id}"
   vpc_security_group_ids = ["${aws_security_group.sg_allow_ssh_jenkins.id}"]
   subnet_id          = "${aws_subnet.public-subnet-1.id}"

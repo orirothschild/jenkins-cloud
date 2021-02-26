@@ -44,6 +44,10 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 
+# add docker to sudo group
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
 # sudo chkconfig jenkins on
 # sudo service docker start
 # sudo service jenkins start
