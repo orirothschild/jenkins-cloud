@@ -12,18 +12,10 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-        stage('Test Application') {
-            steps {
-                echo '=== Testing Petclinic Application ==='
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
         stage('Build Docker Image') {
+            agent {
+        label 'aws' 
+    }
             when {
                 branch 'master'
             }
