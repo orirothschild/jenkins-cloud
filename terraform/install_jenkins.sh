@@ -47,6 +47,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 # add docker to sudo group
 sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo usermod -aG docker ec2-user
+
 newgrp docker 
 # sudo chkconfig jenkins on
 # sudo service docker start
