@@ -1,8 +1,5 @@
 pipeline {
-    agent any
-       triggers {
-        pollSCM "* * * * *"
-       }
+    agent {label 'aws' }
     stages {
         stage('Build Application') { 
             agent {label 'docker-agent' }
